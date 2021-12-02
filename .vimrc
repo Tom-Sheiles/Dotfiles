@@ -12,12 +12,14 @@ set showcmd
 set cursorline
 set hlsearch
 set incsearch
+set laststatus=2
+set statusline=\ %t\ %m
 
 " *Key Binds* "
-inoremap " ""<left>
-inoremap ' ''<left>
+"inoremap " ""<left>
+"inoremap ' ''<left>
 "inoremap ( ()<left>
-inoremap [ []<left>
+"inoremap [ []<left>
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
@@ -34,6 +36,7 @@ highlight PmenuSel ctermfg=white ctermbg=gray
 highlight CursorLine ctermfg=none ctermbg=black cterm=none
 highlight YcmErrorSection ctermfg=red
 highlight MatchParen cterm=bold ctermfg=cyan ctermbg=none
+highlight StatusLine ctermfg=darkgray ctermbg=cyan
 
 set path+=**
 set wildmenu
