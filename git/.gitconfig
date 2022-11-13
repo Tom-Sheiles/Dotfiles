@@ -3,3 +3,6 @@
 	name = Tom
 [core]
 	editor = vim
+
+[credential]
+	helper = store
