@@ -1,29 +1,39 @@
-set number
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set softtabstop=4
-set mouse=a
+set number			" Numero
+syntax on			" Powered by techicolor
+set shiftwidth=4	" size of your tabs
+set tabstop=4		" Number of spaces a tab counts for
+set smartindent		" tab after newline
+set mouse=a			" Let the mouse control select
 
-set completeopt=longest,menuone "makes autocomplete not select first item
+set path+=** 		" Wow Magic !!
+set wildmenu 		" tab complete menu
+set laststatus=2 	" Turn on status line
 
-" makes autocomplete narrow down possible
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <C-m> pumvisible() ? "<C-y>" : "\<C-g>u\<CR>"
+" Bracket autocomplete
+inoremap { {}<left>
+inoremap ' ''<left>
+inoremap " ""<left>
+inoremap ( ()<left>
+inoremap < <><left>
+inoremap {<CR> {<CR>}<ESC>O
 
+" Swap buffers with shortcuts
+map <S-j> :bp!<CR>
+map <S-k> :bn!<CR>
+
+" Plugins
 call plug#begin()
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
-" enable buffer name on the top of the window
+" enable buffer names
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
 
-noremap <S-k> :bn<CR>
-noremap <S-j> :bp<CR>
+colorscheme duskfox
+let g:airline_theme="zenburn"
