@@ -29,7 +29,7 @@ PS1=$"\[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \w\$\] "
 
 export DIFFPROG="nvim -d" 			# Set diff program
 export EDITOR="nvim"				# Set Editor
-source .bash_aliases				# Set Aliases
+source ~/.bash_aliases				# Set Aliases
 setxkbmap -option caps:swapescape 	# swap escape and caps
 
 bind "set completion-ignore-case on" # Ignore case in file complete
