@@ -1,4 +1,3 @@
-#
 # ~/.bashrc
 
 # If not running interactively, don't do anything
@@ -7,8 +6,13 @@
 # disable terminal suspension
 stty -ixon
 
+# check window size after each command
+shopt -s checkwinsize 
 
 PATH=$PATH:~/bin	# Append directories to path
+
+HISTCONTROL=ignoredups:ignorespace
+shopt -s histappend
 
 
 # Shell prompt
@@ -19,12 +23,16 @@ select_random(){
 	echo ${unicodechars[$RANDOM%${#unicodechars[@]}]}
 }
 
-PS1=$"\$(select_random) \e[35m\u\e[0m@\e[96m\h\e[0m \$(select_random) \w\$ "
+#PS1=$"\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$" deb default
+#PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w\$\] "
+PS1=$"\[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \w\$\] "
 
-
-source .bash_aliases				# Set Aliases
 export DIFFPROG="nvim -d" 			# Set diff program
+export EDITOR="nvim"				# Set Editor
+source .bash_aliases				# Set Aliases
 setxkbmap -option caps:swapescape 	# swap escape and caps
 
 bind "set completion-ignore-case on" # Ignore case in file complete
+bind 'set show-all-if-ambiguous on'
+bind "TAB:menu-complete"
 

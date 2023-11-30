@@ -1,2 +1,3 @@
 # Dotfiles
-Repository of all plaintext config files to easily sync all programs across machines.
+
+Backup of my major configuration files used on my home Arch machine.

@@ -50,7 +50,7 @@ beautiful.useless_gap = 10
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -601,13 +601,14 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autorun programs
-autorun = true
-autorunApps = {
-	"picom --experimental-backends -b"
-}
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+autorun = false
+--autorunApps = {
+--	"picom --experimental-backends -b"
+--}
 
-if autorun then
-	for app = 1, #autorunApps do
-		awful.util.spawn(autorunApps[app])
-	end
-end
+--if autorun then
+--	for app = 1, #autorunApps do
+--		awful.util.spawn(autorunApps[app])
+--	end
+--end
