@@ -16,16 +16,24 @@ shopt -s histappend
 
 
 # Shell prompt
-unicodechars=($'\xf0\x9f\x98\x81' $'\xe2\x98\xa3' $'\xf0\x9f\x90\xb1' $'\xe2\x98\xa2')
+#unicodechars=($'\xf0\x9f\x98\x81' $'\xe2\x98\xa3' $'\xf0\x9f\x90\xb1' $'\xe2\x98\xa2')
+unicodechars=($'\xf0\x9f\x98\x81')
 
-select_random(){
+function select_random(){
 	RANDOM=$$$(date +%s)
 	echo ${unicodechars[$RANDOM%${#unicodechars[@]}]}
 }
 
-#PS1=$"\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$" deb default
+function jobs_running(){
+    if [ $(jobs | wc -l) -gt 0 ]; then
+        echo -e "\e[92m"
+    else
+        echo -e "\e[0m"
+    fi
+}
+
 #PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w\$\] "
-PS1=$"\[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \w\$\] "
+PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w \[\$(jobs_running)\]\$\[\e[0m\] "
 
 export DIFFPROG="nvim -d" 			# Set diff program
 export EDITOR="nvim"				# Set Editor
