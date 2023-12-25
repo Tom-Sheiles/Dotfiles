@@ -1,7 +1,7 @@
 set number			" Numero
 syntax on			" Powered by techicolor
-set shiftwidth=4	" size of your tabs
-set tabstop=4		" Number of spaces a tab counts for
+set shiftwidth=2	" size of your tabs
+set tabstop=2		" Number of spaces a tab counts for
 set smartindent		" tab after newline
 set mouse=a			" Let the mouse control select
 
@@ -28,12 +28,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+
+" Colorschemes
 Plug 'EdenEast/nightfox.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 call plug#end()
 
 " enable buffer names
 let g:airline#extensions#tabline#enabled = 1
 
-colorscheme duskfox
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE  " Stop from changing background color
+colorscheme catppuccin-mocha
 let g:airline_theme="zenburn"

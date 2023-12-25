@@ -7,7 +7,7 @@
 stty -ixon
 
 # check window size after each command
-shopt -s checkwinsize 
+shopt -s checkwinsize
 
 PATH=$PATH:~/bin	# Append directories to path
 
@@ -25,11 +25,11 @@ function select_random(){
 }
 
 function jobs_running(){
-    if [ $(jobs | wc -l) -gt 0 ]; then
-        echo -e "\e[92m"
-    else
-        echo -e "\e[0m"
-    fi
+	if [ $(jobs | wc -l) -gt 0 ]; then
+		echo -e "\e[92m"
+	else
+		echo -e "\e[0m"
+	fi
 }
 
 #PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w\$\] "
@@ -38,9 +38,13 @@ PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(sel
 export DIFFPROG="nvim -d" 			# Set diff program
 export EDITOR="nvim"				# Set Editor
 source ~/.bash_aliases				# Set Aliases
-setxkbmap -option caps:swapescape 	# swap escape and caps
+
+if [ $XDG_SESSION_TYPE == "X11" ]; then
+	setxkbmap -option caps:swapescape 	# If not on Wayland swap escape and caps
+elif [ $DESKTOP_SESSION == "gnome" ]; then
+	gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape']" # use gsettings when on gnome
+fi
 
 bind "set completion-ignore-case on" # Ignore case in file complete
 bind 'set show-all-if-ambiguous on'
 bind "TAB:menu-complete"
-
