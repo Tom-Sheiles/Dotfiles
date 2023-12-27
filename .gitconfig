@@ -9,3 +9,5 @@
 
 [alias]
 	s = status -bs
+[init]
+	defaultBranch = main
