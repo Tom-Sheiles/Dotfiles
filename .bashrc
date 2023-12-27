@@ -24,6 +24,16 @@ function select_random(){
 	echo ${unicodechars[$RANDOM%${#unicodechars[@]}]}
 }
 
+function git_branch(){
+	GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+	if [[ $GIT_BRANCH = "" ]];
+	then
+		echo ""
+	else
+		echo -e "(\e[01;33m$GIT_BRANCH\e[0m) "
+	fi
+}
+
 function jobs_running(){
 	if [ $(jobs | wc -l) -gt 0 ]; then
 		echo -e "\e[92m"
@@ -33,7 +43,7 @@ function jobs_running(){
 }
 
 #PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w\$\] "
-PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w \[\$(jobs_running)\]\$\[\e[0m\] "
+PS1=$"\$(select_random) \[\e[01;35m\]\u\[\e[0m@\]\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w \$(git_branch)\[\$(jobs_running)\]\$\[\e[0m\] "
 
 export DIFFPROG="nvim -d" 			# Set diff program
 export EDITOR="nvim"				# Set Editor

@@ -6,3 +6,6 @@
 
 [credential]
 	helper = store
+
+[alias]
+	s = status -bs
