@@ -3,11 +3,13 @@
 	name = Tom
 [core]
 	editor = nvim
-
 [credential]
 	helper = store
-
 [alias]
 	s = status -bs
+	l = log --oneline
+	lg = log --oneline --graph
 [init]
 	defaultBranch = main
+[pull]
+	ff = only
