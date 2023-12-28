@@ -52,7 +52,7 @@ function git_branch(){
 	if [[ $GIT_BRANCH = "" ]]; then
 		echo ""
 	else
-		echo -e "(\001\e[$BRANCH_COLOR\002$GIT_BRANCH\001\e[0m\002)"
+		echo -e "(\001\e[$BRANCH_COLOR\002$GIT_BRANCH\001\e[0m\002) "
 	fi
 }
 
@@ -65,5 +65,5 @@ function jobs_running(){
 	fi
 }
 
-PS1="\$(select_random) \[\e[01;35m\]\u\[\e[0m\]@\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w \$(git_branch) \$(jobs_running)\$\[\e[0m\] "
+PS1="\$(select_random) \[\e[01;35m\]\u\[\e[0m\]@\[\e[01;96m\]\h\[\e[0m\] \$(select_random) \w \$(git_branch)\$(jobs_running)\$\[\e[0m\] "
 
