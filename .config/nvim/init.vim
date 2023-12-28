@@ -1,25 +1,27 @@
-set number			" Numero
-syntax on			" Powered by techicolor
+set number				" Numero
+syntax on					" Powered by techicolor
 set shiftwidth=2	" size of your tabs
-set tabstop=2		" Number of spaces a tab counts for
+set tabstop=2			" Number of spaces a tab counts for
 set smartindent		" tab after newline
-set mouse=a			" Let the mouse control select
+set mouse=a				" Let the mouse control select
 
-set path+=** 		" Wow Magic !!
-set wildmenu 		" tab complete menu
+set path+=** 			" Wow Magic !!
+set wildmenu 			" tab complete menu
 set laststatus=2 	" Turn on status line
 
 " Bracket autocomplete
+"inoremap ' ''<left>
+"inoremap " ""<left>
+"inoremap < <><left>
 inoremap { {}<left>
-inoremap ' ''<left>
-inoremap " ""<left>
 inoremap ( ()<left>
-inoremap < <><left>
 inoremap {<CR> {<CR>}<ESC>O
 
 " Swap buffers with shortcuts
-map <S-j> :bp!<CR>
-map <S-k> :bn!<CR>
+noremap <C-j> J
+noremap <C-k> K
+noremap <S-j> :bp!<CR>
+noremap <S-k> :bn!<CR>
 
 " Plugins
 call plug#begin()
@@ -42,3 +44,4 @@ let g:airline#extensions#tabline#enabled = 1
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE  " Stop from changing background color
 colorscheme catppuccin-mocha
 let g:airline_theme="zenburn"
+
