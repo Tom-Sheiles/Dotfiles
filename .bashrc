@@ -26,11 +26,18 @@ function select_random(){
 
 function git_branch(){
 	GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-	if [[ $GIT_BRANCH = "" ]];
-	then
+
+	# Change color if files have been modified
+	if [[ $(git status -s 2> /dev/null | wc -l | bc ) -gt 0 ]]; then
+		BRANCH_COLOR="01;33m"
+	else
+		BRANCH_COLOR="01;32m"
+	fi
+
+	if [[ $GIT_BRANCH = "" ]]; then
 		echo ""
 	else
-		echo -e "(\e[01;33m$GIT_BRANCH\e[0m) "
+		echo -e "(\e[$BRANCH_COLOR$GIT_BRANCH\e[0m) "
 	fi
 }
 
