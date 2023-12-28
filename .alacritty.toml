@@ -1,0 +1,26 @@
+import = [
+	"~/.config/alacritty_themes/catppuccin_mocha.toml"
+]
+
+[font]
+size = 10
+
+[font.bold]
+family = "Cascadia Code"
+style = "Bold"
+
+[font.bold_italic]
+family = "Cascadia Code"
+style = "Bold Italic"
+
+[font.italic]
+family = "Cascadia Code"
+style = "Italic"
+
+[font.normal]
+family = "Cascadia Code"
+style = "Regular"
+
+[window.padding]
+x = 15
+y = 15
