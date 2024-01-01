@@ -5,6 +5,8 @@ set tabstop=2			" Number of spaces a tab counts for
 set smartindent		" tab after newline
 set mouse=a				" Let the mouse control select
 set breakindent   " word wrap indents correctly
+set formatoptions=l " Ensure wrap doesn't split words
+set lbr							" ^
 
 set path+=** 			" Wow Magic !!
 set wildmenu 			" tab complete menu
