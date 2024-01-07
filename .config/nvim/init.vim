@@ -31,6 +31,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
+Plug 'itchyny/calendar.vim'
 
 " Colorschemes
 Plug 'EdenEast/nightfox.nvim'
