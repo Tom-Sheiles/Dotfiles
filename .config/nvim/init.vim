@@ -48,4 +48,4 @@ let g:airline#extensions#tabline#enabled = 1
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE  " Stop from changing background color
 colorscheme catppuccin-mocha
 let g:airline_theme="zenburn"
-
+let g:airline#extensions#whitespace#enabled = 0
