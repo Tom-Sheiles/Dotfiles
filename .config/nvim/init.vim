@@ -31,6 +31,8 @@ noremap <C-j> J
 noremap <C-k> K
 noremap <S-j> :bp!<CR>
 noremap <S-k> :bn!<CR>
+nnoremap <A-j> :m +1<CR>
+nnoremap <A-k> :m -2<CR>
 
 " Plugins
 call plug#begin()
